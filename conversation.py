@@ -28,7 +28,7 @@ class Conversation:
             name = game.me.name
             self.send_reply(line, f"{name} running {self.engine.name()} (lichess-bot v{self.version})")
         elif cmd == "howto":
-            self.send_reply(line, "How to run: Check out 'Lichess Bot API'")
+            self.send_reply(line, "How to run: Check out 'making lichess bot' blog by @EshanHasaranga200703")
         elif cmd == "eval" and line.room == "spectator":
             stats = self.engine.get_stats(for_chat=True)
             self.send_reply(line, ", ".join(stats))

@@ -1,4 +1,4 @@
-token: "lip_YSmGK7mC9iHNH5gstmiY"    # Lichess OAuth2 Token.
+token: "lip_sUNfmg6aaKv1tEkajd0H"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
@@ -152,11 +152,11 @@ challenge:                   # Incoming challenges.
   variants:                  # Chess variants to accept (https://lichess.org/variant).
     - standard
 #   - fromPosition
-    - antichess
-    - atomic
+#    - antichess
+#    - atomic
     - chess960
     - crazyhouse
-    - horde
+#    - horde
     - kingOfTheHill
     - racingKings
     - threeCheck
@@ -175,7 +175,7 @@ greeting:
     #   {opponent} to insert opponent's name
     #   {me} to insert bot's name
     # Any other words in curly braces will be removed.
-    hello: "Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond to. Made by @EshanHasaranga200703" # Message to send to chat at the start of a game
-    goodbye: "Good game! Hope you've enjoyed it, bye!" # Message to send to chat at the end of a game
+    hello: "Hi {opponent}! I'm {me}. Good luck! Type !help for a list of commands I can respond to. Made by @EshanHasaranga200703" # Message to send to chat at the start of a game
+    goodbye: "Good game {opponent}! Hope you've enjoyed it, bye!" # Message to send to chat at the end of a game
 
 # pgn_directory: "game_records" # A directory where PGN-format records of the bot's games are kept

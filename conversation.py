@@ -11,7 +11,7 @@ class Conversation:
         self.version = version
         self.challengers = challenge_queue
 
-    command_prefix = "#"
+    command_prefix = "!"
 
     def react(self, line, game):
         logger.info(f'*** {self.game.url()} [{line.room}] {line.username}: {line.text.encode("utf-8")}')
@@ -20,7 +20,7 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: #wait, #name, #howto, #eval, #queue")
+            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120, 120)
             self.send_reply(line, "Waiting 60 seconds...")
@@ -28,13 +28,12 @@ class Conversation:
             name = game.me.name
             self.send_reply(line, f"{name} running {self.engine.name()} (lichess-bot v{self.version})")
         elif cmd == "howto":
-            self.send_reply(line, "How to run: Check out 'making lichess bot' blog by my owner :)")
-            self.send_reply(line, "My owner is @EshanHasaranga200703")
+            self.send_reply(line, "How to run: Check out the blog about BOT made by @thibault :)")
         elif cmd == "eval" and line.room == "spectator":
             stats = self.engine.get_stats(for_chat=True)
             self.send_reply(line, ", ".join(stats))
         elif cmd == "eval":
-            self.send_reply(line, "I will not tell that to my opponent, sorry. However, why are you asking my personal things?")
+            self.send_reply(line, "It's secret, sorry")
         elif cmd == "queue":
             if self.challengers:
                 challengers = ", ".join([f"@{challenger.challenger_name}" for challenger in reversed(self.challengers)])
